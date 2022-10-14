@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('nav-bar') -%>
+    <h1><%= title %></h1>
+
+    <form method="post" action="">
+      <label for="name"> name:</label>
+      <input type="text" name="first_name" id="name" value="<%=locals.user.first_name%>" required />
+
+      <label for="last_name"> last name:</label>
+      <input type="text" name="last_name" id="last_name" value="<%= locals.user.last_name %>" required />
+
+      <label for="username"> email:</label>
+      <input type="email" name="username" id="username" value="<%= locals.user.username %>" required />
+
+      <label for="password"> password:</label>
+      <input type="password" name="password" id="password" required />
+
+      <label for="confirm_password"> confirm password:</label>
+      <input type="password" name="confirm_password" id="confirm_password"  required/>
+
+
+      <% if(locals.errors){ %>
+        <ul>
+          <% for(let i=0; i<locals.errors.length; i++) {%>
+            <li><%= locals.errors[i].msg %></li>
+         <% } %>
+        </ul>
+     <% } %>
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>
