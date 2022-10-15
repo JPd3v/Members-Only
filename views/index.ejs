@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('nav-bar') -%>
+    
+    <% if(locals.isEmpty){ %>
+      <h2><%= locals.isEmpty %></h2>
+   <% } %>
+
+    <% if(locals.messages){ %>
+      <ul>
+        <% for(let i=0; i<locals.messages.length; i++) {%>
+          <li><%= locals.messages[i].title %></li>
+          <li><%= locals.messages[i].text %></li>
+
+          <% if(locals.currentUser?.membership_status === true){ %>
+            <li><%= locals.messages[i].author.full_name%></li>
+          <li><%= locals.messages[i].date %></li>
+          <% } else{ %>  
+            <li>Anonymous</li>
+            <li>get member status to see members information</li>
+         <% } %>
+            
+         <% if(locals.currentUser?.admin_status === true){ %>
+          <li><form action="/delete-message" method="post">
+            <input type="hidden" name="message_id" value="<%= locals.messages[i]._id %>">
+            <button type="submit">X</button>
+           </form></li>
+       <% } %>
+        
+       <% } %>
+       
+      </ul>
+   <% } %>
+  </body>
+</html>
