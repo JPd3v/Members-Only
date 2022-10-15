@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>get a role</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('nav-bar') -%>
+    <h1>get a role</h1>
+
+    <form action="" method="post">
+      <label for="secret_code">insert a secret code for get a role</label>
+      <input type="text" name="secret_code" id="secret_code" />
+
+      <button type="submit">submit code</button>
+    </form>
+    <% if(locals.errors){ %>
+      <ul>
+        <% for(let i=0; i<locals.errors.length; i++) {%>
+          <li><%= locals.errors[i].msg %></li>
+       <% } %>
+      </ul>
+   <% } %>
+  </body>
+</html>
