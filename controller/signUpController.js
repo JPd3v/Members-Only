@@ -46,6 +46,7 @@ exports.user_create_post = [
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       membership_status: false,
+      admin_status: false,
     });
 
     if (!errors.isEmpty()) {
@@ -83,6 +84,7 @@ exports.user_create_post = [
           first_name: req.body.first_name,
           last_name: req.body.last_name,
           membership_status: false,
+          admin_status: false,
         }).save((err) => {
           if (err) {
             return next(err);
