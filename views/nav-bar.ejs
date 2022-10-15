@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% if(locals.currentUser){ %>
+    <ul class="loged-nav-bar">
+      <li><a href="/">Home</a></li>
+      <li><a href="/get-role">get role</a></li>
+      <li><a href="/create-message">create a new message</a></li>
+      <li><a href="/log-out">log out</a></li>
+    </ul>
+    <% } else{ %>
+    <ul class="nav-bar">
+      <li><a href="/">Home</a></li>
+      <li><a href="/sign-up">sign up</a></li>
+      <li><a href="/log-in">log-in</a></li>
+    </ul>
+    <% } %>
+  </body>
+</html>
