@@ -24,15 +24,14 @@
       <label for="confirm_password"> confirm password:</label>
       <input type="password" name="confirm_password" id="confirm_password"  required/>
 
-
-      <% if(locals.errors){ %>
-        <ul>
-          <% for(let i=0; i<locals.errors.length; i++) {%>
-            <li><%= locals.errors[i].msg %></li>
-         <% } %>
-        </ul>
-     <% } %>
       <button type="submit">Sign Up</button>
     </form>
+    <% if(locals.errors){ %>
+      <ul>
+        <% for(let i=0; i<locals.errors.length; i++) {%>
+          <li><%= locals.errors[i].msg %></li>
+       <% } %>
+      </ul>
+   <% } %>
   </body>
 </html>

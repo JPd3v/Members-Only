@@ -5,6 +5,7 @@ const MessageSchema = new Schema({
   title: { type: String, required: true },
   text: { type: String, required: true },
   author: { type: Schema.Types.ObjectId, ref: "User" },
+  date: { type: Date, required: true },
 });
 
 module.exports = mongoose.model("Message", MessageSchema);
